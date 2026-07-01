@@ -1,95 +1,176 @@
-🌙 Dream Journal Analyzer — Multi-Agent System
+# 🌙 Dream Journal Analyzer — Multi-Agent System
 
+**Python Version:** 3.9
+**Flask:** 3.0
+**LangGraph:** 0.1
+**License:** MIT
 
-Python Version:3.9
-Flask:3.0
-LangGraph:0.1
-License: MIT
+Dream Journal Analyzer is a web application that performs deep psychological analysis of dreams using a **multi-agent workflow** built with **LangGraph** and powered by **Google Gemini**. It analyzes dream descriptions to extract emotions, decode symbolic meanings, identify recurring life patterns, and generate an encouraging reflective journal report.
 
-Dream Journal Analyzer is a fully functional web application that performs deep psychological analysis of dreams. Using a sequential LangGraph multi-agent workflow powered by Google Gemini, it extracts emotions, decodes symbolic meanings, identifies life patterns, and synthesizes them into an encouraging journaling reflection.
+The project also features a sleek **starry dark-themed UI** with live agent transition animations for an interactive user experience.
 
-The project features a sleek, starry dark-themed frontend UI with live agent transition tracking animations.
+---
 
-🎨 UI & UX Design Highlights
-Starry Night Atmosphere: A beautiful glassmorphic UI styled with deep purple/navy gradients, glowing borders, and starry particle effects.
-Interactive Agent Pipeline Tracker: Shows the live state of agents (Emotion Detector ➡️ Symbol Decoder ➡️ Pattern Tracker ➡️ Insight Narrator) with active and completed status indicators as they process the dream.
-Responsive Layout: Works seamlessly across desktops, tablets, and mobile devices.
+## 🎨 UI & UX Design Highlights
 
-🗺️ System Architecture
-The application uses LangGraph to pass state sequentially from one specialized agent to the next:
+* **Starry Night Atmosphere**
+  A beautiful glassmorphic interface styled with deep purple and navy gradients, glowing borders, and animated star particles.
 
+* **Interactive Agent Pipeline Tracker**
+  Displays the real-time status of agents:
+  **Emotion Detector → Symbol Decoder → Pattern Tracker → Insight Narrator**
 
-<img width="208" height="517" alt="Screenshot 2026-07-01 104850" src="https://github.com/user-attachments/assets/082b8328-c1d7-4ed7-aeb6-2dc4e366f575" />
+* **Responsive Design**
+  Fully responsive across desktop, tablet, and mobile devices.
 
+---
 
+## 🗺️ System Architecture
 
-Project Structure
+The application uses **LangGraph** to sequentially pass state from one specialized agent to another.
 
-dream_analyzer/
-├── agents.py      ← LangGraph multi-agent pipeline
-├── app.py         ← Flask server
-├── index.html     ← Full frontend (single file)
-└── README.md
+### Agent Workflow
 
-Agents (LangGraph Pipeline)
+```text
 User Input
-    ↓
-Emotion Detector  →  Symbol Decoder  →  Pattern Tracker  →  Insight Narrator
-                                                                    ↓
-                                                            Dream Report
+   ↓
+Emotion Detector → Symbol Decoder → Pattern Tracker → Insight Narrator
+                                                                  ↓
+                                                           Dream Report
+```
 
-Setup & Run
-1. Install dependencies
+---
+
+## 📁 Project Structure
+
+```bash
+dream_analyzer/
+├── agents.py       # LangGraph multi-agent pipeline
+├── app.py          # Flask backend server
+├── index.html      # Frontend UI
+└── README.md
+```
+
+---
+
+## 🤖 Agents in the Pipeline
+
+### 1. Emotion Detector
+
+Analyzes the dream and identifies dominant emotions along with their intensity.
+
+### 2. Symbol Decoder
+
+Extracts important dream symbols and interprets their possible meanings.
+
+### 3. Pattern Tracker
+
+Identifies recurring themes and links them to possible life situations.
+
+### 4. Insight Narrator
+
+Generates a final reflective report with encouragement and journaling prompts.
+
+---
+
+## ⚙️ Setup & Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Pammy-Saini/Dream-Analyzer-project.git
+cd Dream-Analyzer-project
+```
+
+### 2. Install Dependencies
+
+```bash
 pip install langgraph langchain-google-genai flask flask-cors
-2. Get a Gemini API Key
-Go to https://aistudio.google.com/apikey
-Create a free API key
-3. Run the server
-cd dream_analyzer
+```
+
+### 3. Get a Gemini API Key
+
+Visit **Google AI Studio** and create a free API key:
+[Google AI Studio](https://aistudio.google.com/apikey?utm_source=chatgpt.com)
+
+### 4. Run the Application
+
+```bash
 python app.py
-4. Open the app
-Visit: http://localhost:5000
+```
 
-5. Use it
-Paste your Gemini API key in the field
-Describe your dream
-Click Analyze My Dream
+### 5. Open in Browser
 
-
-
-🏃 Running the Application
-
-1.Start the Flask server:
-bash
-python app.py
-
-2.Open your web browser and navigate to:
-text
+```text
 http://localhost:5000
+```
 
-3.Enter your Gemini API Key (from Google AI Studio), describe your dream, and click ✨ Analyze My Dream!
+---
 
+## 🚀 How to Use
 
-🔌 API Endpoints
-Analyze Dream
-Endpoint: /analyze
-Method: POST
-Headers: Content-Type: application/json
-Request Payload:
-json
+1. Open the application in your browser
+2. Enter your **Gemini API Key**
+3. Describe your dream in the input box
+4. Click **✨ Analyze My Dream**
+5. View the generated dream analysis report
 
+---
+
+## 🔌 API Endpoint
+
+### Analyze Dream
+
+**Endpoint:** `/analyze`
+**Method:** `POST`
+**Content-Type:** `application/json`
+
+### Request Body
+
+```json
 {
   "dream": "I was walking through an empty, quiet library when a small glowing blue bird flew onto my shoulder and whispered a key word.",
   "api_key": "YOUR_GEMINI_API_KEY"
 }
-Success Response (200 OK):
-json
+```
 
+### Success Response (200 OK)
+
+```json
 {
   "emotion": "Primary Emotion: Wonder\nIntensity: Medium\nInsight: Indicates a quiet search for knowledge and gentle self-discovery.",
   "symbols": "Symbol 1: Library — Symbolizes wisdom, memory, and search for answers.\nSymbol 2: Blue Bird — Represents hope, joy, and spiritual guidance.",
   "patterns": "Theme: Exploration / Inner Search\nLife Area: Career path or personal expression\nSuggestion: Keep a dream journal and write down the first word that comes to your mind every morning.",
-  "report": "Paragraph 1: [Emotional synthesis...]\nParagraph 2: [Symbols & patterns interpretation...]\nParagraph 3: [Journaling prompt and encouraging closing...]"
+  "report": "Paragraph 1: Emotional synthesis...\nParagraph 2: Symbol interpretation...\nParagraph 3: Journaling reflection and encouragement..."
 }
+```
 
+---
 
+## 🛠 Tech Stack
+
+* **Python**
+* **Flask**
+* **LangGraph**
+* **Google Gemini API**
+* **HTML**
+* **CSS**
+* **JavaScript**
+
+---
+
+## 🌟 Features
+
+✅ Multi-agent AI workflow
+✅ Dream emotion analysis
+✅ Symbol interpretation
+✅ Pattern detection
+✅ Reflective journal report generation
+✅ Modern animated UI
+✅ Real-time agent tracking
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
