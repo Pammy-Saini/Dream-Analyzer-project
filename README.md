@@ -29,6 +29,10 @@ The project also features a sleek **starry dark-themed UI** with live agent tran
 
 The application uses **LangGraph** to sequentially pass state from one specialized agent to another.
 
+<img width="208" height="517" alt="Screenshot 2026-07-01 104850" src="https://github.com/user-attachments/assets/cab5952e-655f-4c9b-b3a1-5a62066bac80" />
+
+
+
 ### Agent Workflow
 
 ```text
